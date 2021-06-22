@@ -10,11 +10,11 @@
 class L293D
 {
     private:
-        bool reversed;
+        bool reversed = false;
         int EnPin;
         int InputPin_1;
         int InputPin_2;
-        int speed;
+        
 
     public:
         L293D(int EnablePin, int InputPin1, int InputPin2);
@@ -23,6 +23,9 @@ class L293D
         void Move(int speed);
         void Move();
         void SetSpeed(int Speed);
+        void Stop();
+        bool IsMoving = false;
+        int speed;
 };
 
 
