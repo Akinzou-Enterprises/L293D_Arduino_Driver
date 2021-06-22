@@ -20,6 +20,7 @@ void L293D::Move()
     analogWrite(EnPin, speed);
     digitalWrite(InputPin_1, !reversed);
     digitalWrite(InputPin_2, reversed);
+    IsMoving = true;
 }
 
 void L293D::Move(int speed)
@@ -27,6 +28,7 @@ void L293D::Move(int speed)
     analogWrite(EnPin, speed);
     digitalWrite(InputPin_1, !reversed);
     digitalWrite(InputPin_2, reversed);
+    IsMoving = true;
 }
 
 
@@ -36,7 +38,16 @@ void L293D::Move(int speed, bool reverse)
     analogWrite(EnPin, speed);
     digitalWrite(InputPin_1, !reversed);
     digitalWrite(InputPin_2, reversed);
+    IsMoving = true;
 }
+
+void L293D::Stop()
+{
+    digitalWrite(InputPin_1, reversed);
+    digitalWrite(InputPin_2, reversed);
+    IsMoving = false;
+}
+
 
 
 void L293D::Reverse(bool reverse)
