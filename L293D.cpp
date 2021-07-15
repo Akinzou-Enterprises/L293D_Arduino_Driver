@@ -43,8 +43,8 @@ void L293D::Move(int speed, bool reverse)
 
 void L293D::Stop()
 {
-    digitalWrite(InputPin_1, reversed);
-    digitalWrite(InputPin_2, reversed);
+    digitalWrite(InputPin_1, LOW);
+    digitalWrite(InputPin_2, LOW);
     IsMoving = false;
 }
 
